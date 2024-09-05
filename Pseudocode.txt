@@ -1,0 +1,8 @@
+1. Make the board
+2. Randomly locate bombs
+3. Place numbers near bombs to help find bombs.
+4. Make sure the first click not bombs (note: if it's bombs rerandom the bombs placed )
+5. Should the number of bombs showing in the game 
+6. If click on bombs it will shoing alert"you lost"
+7. If found all the bombs it will showing "you win "
+8.
