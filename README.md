@@ -16,9 +16,9 @@
 
 ### **_Technologies Used_**
 
-- flexbox or grid (or both)
-- camelCase
-- dark mode
+- Html
+- CSS
+- js
 
 ---
 
@@ -36,9 +36,8 @@
 
 ### **_Future Updates_**
 
-- [ ] Html
-- [ ] CSS
-- [ ] js
+- [ ] flexbox or grid (or both)
+- [ ] camelCase
 - [ ] dark mode
 
 ### **_Credits_**
