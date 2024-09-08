@@ -1,11 +1,12 @@
-1. Make the board
-2. Randomly locate bombs
-3. Place numbers near bombs to help find bombs.
+//1. Make the board
+//2. Randomly locate bombs
+//3. Place numbers near bombs to help find bombs.
 4. Make sure the first click not bombs (note: if it's bombs rerandom the bombs placed )
 5. Should the number of bombs showing in the game 
-6. If click on bombs it will shoing alert"you lost"
+//6. If click on bombs it will shoing alert"you lost"
 7. If found all the bombs it will showing "you win "
 8. check if the number is hidden equal to number of bomb
 9. make some ready board
 10. when click in empty place it should be all empty place near of this place will be shows
-11. if the click above number place only this place will show 
+//11. if the click above number place only this place will show 
+//12. if clicked in any box inside board will show index x if not will show index of y
