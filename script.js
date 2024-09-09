@@ -6,6 +6,8 @@ let count1 = 0
 let bombNo = 10
 let hidenBox = 100
 let number = 0
+let s = 0
+let m = 0
 for (let i = 0; i < 100; i++) {
   x[i] = 0
   y[i] = '-'
@@ -69,61 +71,120 @@ for (let l = 0; l < div.length; l++) {
         }
       }
     }
-    div[l].innerText = x[l]
+
     if (x[l] !== y[l]) {
       hidenBox--
+      div[l].innerText = x[l]
       y[l] = x[l]
     }
-
-    if (x[l] == 0) {
-      if (l > 9) {
-        if (l % 10 > 0 && y[l - 11] !== x[l - 11]) {
-          div[l - 11].innerText = x[l - 11]
-          y[l - 11] = x[l - 11]
+    while (m < 2) {
+      if (y[s] == 0) {
+        if (s > 9) {
+          if (s % 10 > 0 && y[s - 11] !== x[s - 11]) {
+            div[s - 11].innerText = x[s - 11]
+            y[s - 11] = x[s - 11]
+            hidenBox--
+          }
+          if (y[s - 10] !== x[s - 10]) {
+            div[s - 10].innerText = x[s - 10]
+            y[s - 10] = x[s - 10]
+            hidenBox--
+          }
+          if (s % 10 < 9 && y[s - 9] !== x[s - 9]) {
+            div[s - 9].innerText = x[s - 9]
+            y[s - 9] = x[s - 9]
+            hidenBox--
+          }
+        }
+        if (s % 10 > 0 && y[s - 1] !== x[s - 1]) {
+          div[s - 1].innerText = x[s - 1]
+          y[s - 1] = x[s - 1]
           hidenBox--
         }
-        if (y[l - 10] !== x[l - 10]) {
-          div[l - 10].innerText = x[l - 10]
-          y[l - 10] = x[l - 10]
+        if (s % 10 < 9 && y[s + 1] !== x[s + 1]) {
+          div[s + 1].innerText = x[s + 1]
+          y[s + 1] = x[s + 1]
           hidenBox--
         }
-        if (l % 10 < 9 && y[l - 9] !== x[l - 9]) {
-          div[l - 9].innerText = x[l - 9]
-          y[l - 9] = x[l - 9]
-          hidenBox--
+        if (s < 90) {
+          if (s % 10 > 0 && y[s + 9] !== x[s + 9]) {
+            div[s + 9].innerText = x[s + 9]
+            y[s + 9] = x[s + 9]
+            hidenBox--
+          }
+          if (y[s + 10] !== x[s + 10]) {
+            div[s + 10].innerText = x[s + 10]
+            y[s + 10] = x[s + 10]
+            hidenBox--
+          }
+          if (s % 10 < 9 && y[s + 11] !== x[s + 11]) {
+            div[s + 11].innerText = x[s + 11]
+            y[s + 11] = x[s + 11]
+            hidenBox--
+          }
         }
       }
-      if (l % 10 > 0 && y[l - 1] !== x[l - 1]) {
-        div[l - 1].innerText = x[l - 1]
-        y[l - 1] = x[l - 1]
-        hidenBox--
-      }
-      if (l % 10 < 9 && y[l + 1] !== x[l + 1]) {
-        div[l + 1].innerText = x[l + 1]
-        y[l + 1] = x[l + 1]
-        hidenBox--
-      }
-      if (l < 90) {
-        if (l % 10 > 0 && y[l + 9] !== x[l + 9]) {
-          div[l + 9].innerText = x[l + 9]
-          y[l + 9] = x[l + 9]
-          hidenBox--
+      if (m == 0) {
+        s++
+        if (s == 100) {
+          m = 1
         }
-        if (y[l + 10] !== x[l + 10]) {
-          div[l + 10].innerText = x[l + 10]
-          y[l + 10] = x[l + 10]
-          hidenBox--
-        }
-        if (l % 10 < 9 && y[l + 11] !== x[l + 11]) {
-          div[l + 11].innerText = x[l + 11]
-          y[l + 11] = x[l + 11]
-          hidenBox--
+      } else {
+        s--
+        if (s == -1) {
+          m = 2
         }
       }
     }
+    m = 0
+    // if (x[l] == 0) {
+    //   if (l > 9) {
+    //     if (l % 10 > 0 && y[l - 11] !== x[l - 11]) {
+    //       div[l - 11].innerText = x[l - 11]
+    //       y[l - 11] = x[l - 11]
+    //       hidenBox--
+    //     }
+    //     if (y[l - 10] !== x[l - 10]) {
+    //       div[l - 10].innerText = x[l - 10]
+    //       y[l - 10] = x[l - 10]
+    //       hidenBox--
+    //     }
+    //     if (l % 10 < 9 && y[l - 9] !== x[l - 9]) {
+    //       div[l - 9].innerText = x[l - 9]
+    //       y[l - 9] = x[l - 9]
+    //       hidenBox--
+    //     }
+    //   }
+    //   if (l % 10 > 0 && y[l - 1] !== x[l - 1]) {
+    //     div[l - 1].innerText = x[l - 1]
+    //     y[l - 1] = x[l - 1]
+    //     hidenBox--
+    //   }
+    //   if (l % 10 < 9 && y[l + 1] !== x[l + 1]) {
+    //     div[l + 1].innerText = x[l + 1]
+    //     y[l + 1] = x[l + 1]
+    //     hidenBox--
+    //   }
+    //   if (l < 90) {
+    //     if (l % 10 > 0 && y[l + 9] !== x[l + 9]) {
+    //       div[l + 9].innerText = x[l + 9]
+    //       y[l + 9] = x[l + 9]
+    //       hidenBox--
+    //     }
+    //     if (y[l + 10] !== x[l + 10]) {
+    //       div[l + 10].innerText = x[l + 10]
+    //       y[l + 10] = x[l + 10]
+    //       hidenBox--
+    //     }
+    //     if (l % 10 < 9 && y[l + 11] !== x[l + 11]) {
+    //       div[l + 11].innerText = x[l + 11]
+    //       y[l + 11] = x[l + 11]
+    //       hidenBox--
+    //     }
+    //   }
+    // }
 
     hiden.innerText = hidenBox
-    bomb1.innerText = bombNo
 
     if (x[l] === '*') {
       alert('You Lost')

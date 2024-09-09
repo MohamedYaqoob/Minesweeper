@@ -7,6 +7,6 @@
 //7. If found all the bombs it will showing "you win "
 //8. check if the number is hidden equal to number of bomb
 9. make some ready board
-10. when click in empty place it should be all empty place near of this place will be shows
+//10. when click in empty place it should be all empty place near of this place will be shows
 //11. if the click above number place only this place will show 
 //12. if clicked in any box inside board will show index x if not will show index of y
