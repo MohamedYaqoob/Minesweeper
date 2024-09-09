@@ -7,6 +7,7 @@ box {
 
 body {
   display: flex;
+  flex-direction: column;
 }
 
 div {
@@ -17,4 +18,17 @@ div {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 15vh;
+}
+hiden {
+  background-color: blue;
+}
+
+bomb {
+  background-color: blue;
 }
