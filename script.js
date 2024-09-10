@@ -16,6 +16,11 @@ const div = document.querySelectorAll('div')
 hiden.innerText = hidenBox
 bomb1.innerText = bombNo
 
+for (let i = 0; i < 100; i++) {
+  x[i] = 0
+  y[i] = '-'
+}
+
 function win(l) {
   if (x[l] === '*') {
     alert('You Lost')
@@ -23,21 +28,18 @@ function win(l) {
     alert('You Win')
   }
 }
+
 function random(l) {
   for (let i = 0; i < bombNo; i++) {
     bomb[i] = Math.floor(Math.random() * 100)
-    while (x[bomb[i]] == div[l]) {
-      bomb[i] = Math.floor(Math.random() * 100)
-    }
-  }
-  for (let i = 0; i < bomb.length; i++) {
     for (let j = i + 1; j < bombNo; j++) {
-      while (bomb[i] === bomb[i + j] || x[bomb[i]] == div[l]) {
+      while (bomb[i] == bomb[i + j] || l == bomb[i]) {
         bomb[i + j] = Math.floor(Math.random() * 100)
       }
     }
   }
 }
+
 function numberAroundBomb(i) {
   if (bomb[i] > 9) {
     if (bomb[i] % 10 > 0 && x[bomb[i] - 11] != '*') {
@@ -68,9 +70,14 @@ function numberAroundBomb(i) {
     }
   }
 }
-for (let i = 0; i < 100; i++) {
-  x[i] = 0
-  y[i] = '-'
+function showHidenBox(l) {
+  if (x[l] !== y[l]) {
+    if (x[l] !== '*') {
+      hidenBox--
+    }
+    div[l].innerText = x[l]
+    y[l] = x[l]
+  }
 }
 
 for (let l = 0; l < div.length; l++) {
@@ -90,12 +97,7 @@ for (let l = 0; l < div.length; l++) {
         }
       }
     }
-
-    if (x[l] !== y[l]) {
-      hidenBox--
-      div[l].innerText = x[l]
-      y[l] = x[l]
-    }
+    showHidenBox(l)
     while (m < 2) {
       if (y[s] == 0) {
         if (s > 9) {

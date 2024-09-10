@@ -1,8 +1,10 @@
 box {
   display: grid;
-  grid-template-columns: repeat(10, 10%);
-  grid-template-rows: repeat(10, 10%);
-  background-color: white;
+  grid-template-columns: repeat(10, 7vh);
+  grid-template-rows: repeat(10, 7vh);
+  /* background-color: rgb(216, 11, 11); */
+  justify-content: center;
+  align-items: center;
 }
 
 body {
@@ -14,21 +16,24 @@ div {
   height: 7vh;
   width: 7vh;
   background-color: rgb(100, 237, 130);
-  border-radius: 10px 10px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid red;
 }
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 15vh;
 }
-hiden {
-  background-color: lightblue;
-}
-
+hiden,
 bomb {
   background-color: lightblue;
+  height: 7vh;
+  width: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
