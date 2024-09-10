@@ -13,7 +13,7 @@ body {
 div {
   height: 7vh;
   width: 7vh;
-  background-color: red;
+  background-color: rgb(100, 237, 130);
   border-radius: 10px 10px;
   display: flex;
   justify-content: center;
@@ -26,9 +26,9 @@ header {
   height: 15vh;
 }
 hiden {
-  background-color: blue;
+  background-color: lightblue;
 }
 
 bomb {
-  background-color: blue;
+  background-color: lightblue;
 }

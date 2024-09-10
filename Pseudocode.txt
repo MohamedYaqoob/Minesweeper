@@ -10,3 +10,17 @@
 //10. when click in empty place it should be all empty place near of this place will be shows
 //11. if the click above number place only this place will show 
 //12. if clicked in any box inside board will show index x if not will show index of y
+
+i make if you clicked in same locaition multible time will not count
+i make alert for win and lost when catch it
+i am done with when you click in empty box the all empty box around the empty box will show
+if clicked above number box only this box will be show
+i fixed some error
+
+
+i will make the first click not bomb 
+i will fixed the css
+i will make button to restart the game 
+i will make the code as a functions
+i will make the second page of html
+
