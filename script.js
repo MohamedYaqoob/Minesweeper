@@ -21,6 +21,10 @@ for (let i = 0; i < 100; i++) {
   y[i] = '-'
 }
 
+for (let l = 0; l < div.length; l++) {
+  div[l].innerText = y[l]
+}
+
 function win(l) {
   if (x[l] === '*') {
     alert('You Lost')
@@ -40,7 +44,7 @@ function random(l) {
   }
 }
 
-function numberAroundBomb(i) {
+function numberUpBomb(i) {
   if (bomb[i] > 9) {
     if (bomb[i] % 10 > 0 && x[bomb[i] - 11] != '*') {
       x[bomb[i] - 11] += 1
@@ -52,6 +56,10 @@ function numberAroundBomb(i) {
       x[bomb[i] - 9] += 1
     }
   }
+}
+
+function numberAroundBomb(i) {
+  numberUpBomb(i)
   if (bomb[i] % 10 > 0 && x[bomb[i] - 1] != '*') {
     x[bomb[i] - 1] += 1
   }
@@ -134,7 +142,7 @@ function openDownBox(s) {
   }
 }
 
-function openAroundEmptyBox() {
+function openAroundEmptyBox(s) {
   if (y[s] == 0) {
     openUpBox(s)
     openSameLevelBox(s)
@@ -150,10 +158,6 @@ function makeBoard() {
 }
 
 for (let l = 0; l < div.length; l++) {
-  div[l].innerText = y[l]
-}
-
-for (let l = 0; l < div.length; l++) {
   div[l].addEventListener('click', () => {
     for (let l = 0; l < div.length; l++) {
       if (count === 0) {
@@ -164,7 +168,7 @@ for (let l = 0; l < div.length; l++) {
     }
     showHidenBox(l)
     while (m < 2) {
-      openAroundEmptyBox()
+      openAroundEmptyBox(s)
       if (m == 0) {
         s++
         if (s == 100) {
