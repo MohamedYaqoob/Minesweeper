@@ -81,25 +81,29 @@ function showHidenBox(l) {
   }
 }
 
+function openUpBox(s) {
+  if (s > 9) {
+    if (s % 10 > 0 && y[s - 11] !== x[s - 11]) {
+      div[s - 11].innerText = x[s - 11]
+      y[s - 11] = x[s - 11]
+      hidenBox--
+    }
+    if (y[s - 10] !== x[s - 10]) {
+      div[s - 10].innerText = x[s - 10]
+      y[s - 10] = x[s - 10]
+      hidenBox--
+    }
+    if (s % 10 < 9 && y[s - 9] !== x[s - 9]) {
+      div[s - 9].innerText = x[s - 9]
+      y[s - 9] = x[s - 9]
+      hidenBox--
+    }
+  }
+}
+
 function openAroundEmptyBox() {
   if (y[s] == 0) {
-    if (s > 9) {
-      if (s % 10 > 0 && y[s - 11] !== x[s - 11]) {
-        div[s - 11].innerText = x[s - 11]
-        y[s - 11] = x[s - 11]
-        hidenBox--
-      }
-      if (y[s - 10] !== x[s - 10]) {
-        div[s - 10].innerText = x[s - 10]
-        y[s - 10] = x[s - 10]
-        hidenBox--
-      }
-      if (s % 10 < 9 && y[s - 9] !== x[s - 9]) {
-        div[s - 9].innerText = x[s - 9]
-        y[s - 9] = x[s - 9]
-        hidenBox--
-      }
-    }
+    openUpBox(s)
     if (s % 10 > 0 && y[s - 1] !== x[s - 1]) {
       div[s - 1].innerText = x[s - 1]
       y[s - 1] = x[s - 1]
