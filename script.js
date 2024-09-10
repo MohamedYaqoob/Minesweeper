@@ -38,7 +38,36 @@ function random(l) {
     }
   }
 }
-
+function numberAroundBomb(i) {
+  if (bomb[i] > 9) {
+    if (bomb[i] % 10 > 0 && x[bomb[i] - 11] != '*') {
+      x[bomb[i] - 11] += 1
+    }
+    if (x[bomb[i] - 10] != '*') {
+      x[bomb[i] - 10] += 1
+    }
+    if (bomb[i] % 10 < 9 && x[bomb[i] - 9] != '*') {
+      x[bomb[i] - 9] += 1
+    }
+  }
+  if (bomb[i] % 10 > 0 && x[bomb[i] - 1] != '*') {
+    x[bomb[i] - 1] += 1
+  }
+  if (bomb[i] % 10 < 9 && x[bomb[i] + 1] != '*') {
+    x[bomb[i] + 1] += 1
+  }
+  if (bomb[i] < 90) {
+    if (bomb[i] % 10 > 0 && x[bomb[i] + 9] != '*') {
+      x[bomb[i] + 9] += 1
+    }
+    if (x[bomb[i] + 10] != '*') {
+      x[bomb[i] + 10] += 1
+    }
+    if (bomb[i] % 10 < 9 && x[bomb[i] + 11] != '*') {
+      x[bomb[i] + 11] += 1
+    }
+  }
+}
 for (let i = 0; i < 100; i++) {
   x[i] = 0
   y[i] = '-'
@@ -54,49 +83,10 @@ for (let l = 0; l < div.length; l++) {
       if (count === 0) {
         count++
         random(l)
-        // for (let i = 0; i < bombNo; i++) {
-        //   bomb[i] = Math.floor(Math.random() * 100)
-        //   while (x[bomb[i]] == div[l]) {
-        //     bomb[i] = Math.floor(Math.random() * 100)
-        //   }
-        // }
-        // for (let i = 0; i < bomb.length; i++) {
-        //   for (let j = i + 1; j < bombNo; j++) {
-        //     while (bomb[i] === bomb[i + j] || x[bomb[i]] == div[l]) {
-        //       bomb[i + j] = Math.floor(Math.random() * 100)
-        //     }
-        //   }
-        // }
+
         for (let i = 0; i < bombNo; i++) {
           x[bomb[i]] = '*'
-          if (bomb[i] > 9) {
-            if (bomb[i] % 10 > 0 && x[bomb[i] - 11] != '*') {
-              x[bomb[i] - 11] += 1
-            }
-            if (x[bomb[i] - 10] != '*') {
-              x[bomb[i] - 10] += 1
-            }
-            if (bomb[i] % 10 < 9 && x[bomb[i] - 9] != '*') {
-              x[bomb[i] - 9] += 1
-            }
-          }
-          if (bomb[i] % 10 > 0 && x[bomb[i] - 1] != '*') {
-            x[bomb[i] - 1] += 1
-          }
-          if (bomb[i] % 10 < 9 && x[bomb[i] + 1] != '*') {
-            x[bomb[i] + 1] += 1
-          }
-          if (bomb[i] < 90) {
-            if (bomb[i] % 10 > 0 && x[bomb[i] + 9] != '*') {
-              x[bomb[i] + 9] += 1
-            }
-            if (x[bomb[i] + 10] != '*') {
-              x[bomb[i] + 10] += 1
-            }
-            if (bomb[i] % 10 < 9 && x[bomb[i] + 11] != '*') {
-              x[bomb[i] + 11] += 1
-            }
-          }
+          numberAroundBomb(i)
         }
       }
     }
