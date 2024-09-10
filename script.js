@@ -101,19 +101,23 @@ function openUpBox(s) {
   }
 }
 
+function openSameLevelBox(s) {
+  if (s % 10 > 0 && y[s - 1] !== x[s - 1]) {
+    div[s - 1].innerText = x[s - 1]
+    y[s - 1] = x[s - 1]
+    hidenBox--
+  }
+  if (s % 10 < 9 && y[s + 1] !== x[s + 1]) {
+    div[s + 1].innerText = x[s + 1]
+    y[s + 1] = x[s + 1]
+    hidenBox--
+  }
+}
+
 function openAroundEmptyBox() {
   if (y[s] == 0) {
     openUpBox(s)
-    if (s % 10 > 0 && y[s - 1] !== x[s - 1]) {
-      div[s - 1].innerText = x[s - 1]
-      y[s - 1] = x[s - 1]
-      hidenBox--
-    }
-    if (s % 10 < 9 && y[s + 1] !== x[s + 1]) {
-      div[s + 1].innerText = x[s + 1]
-      y[s + 1] = x[s + 1]
-      hidenBox--
-    }
+    openSameLevelBox(s)
     if (s < 90) {
       if (s % 10 > 0 && y[s + 9] !== x[s + 9]) {
         div[s + 9].innerText = x[s + 9]
