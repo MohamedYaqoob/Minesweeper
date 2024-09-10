@@ -130,6 +130,13 @@ function openAroundEmptyBox() {
   }
 }
 
+function makeBoard() {
+  for (let i = 0; i < bombNo; i++) {
+    x[bomb[i]] = '*'
+    numberAroundBomb(i)
+  }
+}
+
 for (let l = 0; l < div.length; l++) {
   div[l].innerText = y[l]
 }
@@ -138,12 +145,9 @@ for (let l = 0; l < div.length; l++) {
   div[l].addEventListener('click', () => {
     for (let l = 0; l < div.length; l++) {
       if (count === 0) {
-        count++
         random(l)
-        for (let i = 0; i < bombNo; i++) {
-          x[bomb[i]] = '*'
-          numberAroundBomb(i)
-        }
+        makeBoard()
+        count++
       }
     }
     showHidenBox(l)
