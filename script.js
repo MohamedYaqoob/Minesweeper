@@ -70,6 +70,7 @@ function numberAroundBomb(i) {
     }
   }
 }
+
 function showHidenBox(l) {
   if (x[l] !== y[l]) {
     if (x[l] !== '*') {
@@ -77,6 +78,55 @@ function showHidenBox(l) {
     }
     div[l].innerText = x[l]
     y[l] = x[l]
+  }
+}
+
+function openAroundEmptyBox() {
+  if (y[s] == 0) {
+    if (s > 9) {
+      if (s % 10 > 0 && y[s - 11] !== x[s - 11]) {
+        div[s - 11].innerText = x[s - 11]
+        y[s - 11] = x[s - 11]
+        hidenBox--
+      }
+      if (y[s - 10] !== x[s - 10]) {
+        div[s - 10].innerText = x[s - 10]
+        y[s - 10] = x[s - 10]
+        hidenBox--
+      }
+      if (s % 10 < 9 && y[s - 9] !== x[s - 9]) {
+        div[s - 9].innerText = x[s - 9]
+        y[s - 9] = x[s - 9]
+        hidenBox--
+      }
+    }
+    if (s % 10 > 0 && y[s - 1] !== x[s - 1]) {
+      div[s - 1].innerText = x[s - 1]
+      y[s - 1] = x[s - 1]
+      hidenBox--
+    }
+    if (s % 10 < 9 && y[s + 1] !== x[s + 1]) {
+      div[s + 1].innerText = x[s + 1]
+      y[s + 1] = x[s + 1]
+      hidenBox--
+    }
+    if (s < 90) {
+      if (s % 10 > 0 && y[s + 9] !== x[s + 9]) {
+        div[s + 9].innerText = x[s + 9]
+        y[s + 9] = x[s + 9]
+        hidenBox--
+      }
+      if (y[s + 10] !== x[s + 10]) {
+        div[s + 10].innerText = x[s + 10]
+        y[s + 10] = x[s + 10]
+        hidenBox--
+      }
+      if (s % 10 < 9 && y[s + 11] !== x[s + 11]) {
+        div[s + 11].innerText = x[s + 11]
+        y[s + 11] = x[s + 11]
+        hidenBox--
+      }
+    }
   }
 }
 
@@ -90,7 +140,6 @@ for (let l = 0; l < div.length; l++) {
       if (count === 0) {
         count++
         random(l)
-
         for (let i = 0; i < bombNo; i++) {
           x[bomb[i]] = '*'
           numberAroundBomb(i)
@@ -99,52 +148,7 @@ for (let l = 0; l < div.length; l++) {
     }
     showHidenBox(l)
     while (m < 2) {
-      if (y[s] == 0) {
-        if (s > 9) {
-          if (s % 10 > 0 && y[s - 11] !== x[s - 11]) {
-            div[s - 11].innerText = x[s - 11]
-            y[s - 11] = x[s - 11]
-            hidenBox--
-          }
-          if (y[s - 10] !== x[s - 10]) {
-            div[s - 10].innerText = x[s - 10]
-            y[s - 10] = x[s - 10]
-            hidenBox--
-          }
-          if (s % 10 < 9 && y[s - 9] !== x[s - 9]) {
-            div[s - 9].innerText = x[s - 9]
-            y[s - 9] = x[s - 9]
-            hidenBox--
-          }
-        }
-        if (s % 10 > 0 && y[s - 1] !== x[s - 1]) {
-          div[s - 1].innerText = x[s - 1]
-          y[s - 1] = x[s - 1]
-          hidenBox--
-        }
-        if (s % 10 < 9 && y[s + 1] !== x[s + 1]) {
-          div[s + 1].innerText = x[s + 1]
-          y[s + 1] = x[s + 1]
-          hidenBox--
-        }
-        if (s < 90) {
-          if (s % 10 > 0 && y[s + 9] !== x[s + 9]) {
-            div[s + 9].innerText = x[s + 9]
-            y[s + 9] = x[s + 9]
-            hidenBox--
-          }
-          if (y[s + 10] !== x[s + 10]) {
-            div[s + 10].innerText = x[s + 10]
-            y[s + 10] = x[s + 10]
-            hidenBox--
-          }
-          if (s % 10 < 9 && y[s + 11] !== x[s + 11]) {
-            div[s + 11].innerText = x[s + 11]
-            y[s + 11] = x[s + 11]
-            hidenBox--
-          }
-        }
-      }
+      openAroundEmptyBox()
       if (m == 0) {
         s++
         if (s == 100) {
