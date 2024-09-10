@@ -16,6 +16,29 @@ const div = document.querySelectorAll('div')
 hiden.innerText = hidenBox
 bomb1.innerText = bombNo
 
+function win(l) {
+  if (x[l] === '*') {
+    alert('You Lost')
+  } else if (hidenBox == bombNo) {
+    alert('You Win')
+  }
+}
+function random(l) {
+  for (let i = 0; i < bombNo; i++) {
+    bomb[i] = Math.floor(Math.random() * 100)
+    while (x[bomb[i]] == div[l]) {
+      bomb[i] = Math.floor(Math.random() * 100)
+    }
+  }
+  for (let i = 0; i < bomb.length; i++) {
+    for (let j = i + 1; j < bombNo; j++) {
+      while (bomb[i] === bomb[i + j] || x[bomb[i]] == div[l]) {
+        bomb[i + j] = Math.floor(Math.random() * 100)
+      }
+    }
+  }
+}
+
 for (let i = 0; i < 100; i++) {
   x[i] = 0
   y[i] = '-'
@@ -27,29 +50,23 @@ for (let l = 0; l < div.length; l++) {
 
 for (let l = 0; l < div.length; l++) {
   div[l].addEventListener('click', () => {
-    function win() {
-      if (x[l] === '*') {
-        alert('You Lost')
-      } else if (hidenBox == bombNo) {
-        alert('You Win')
-      }
-    }
     for (let l = 0; l < div.length; l++) {
-      if (count == 0) {
+      if (count === 0) {
         count++
-        for (let i = 0; i < bombNo; i++) {
-          bomb[i] = Math.floor(Math.random() * 100)
-          while (x[bomb[i]] == div[l]) {
-            bomb[i] = Math.floor(Math.random() * 100)
-          }
-        }
-        for (let i = 0; i < bomb.length; i++) {
-          for (let j = i + 1; j < bombNo; j++) {
-            while (bomb[i] === bomb[i + j] || x[bomb[i]] == div[l]) {
-              bomb[i + j] = Math.floor(Math.random() * 100)
-            }
-          }
-        }
+        random(l)
+        // for (let i = 0; i < bombNo; i++) {
+        //   bomb[i] = Math.floor(Math.random() * 100)
+        //   while (x[bomb[i]] == div[l]) {
+        //     bomb[i] = Math.floor(Math.random() * 100)
+        //   }
+        // }
+        // for (let i = 0; i < bomb.length; i++) {
+        //   for (let j = i + 1; j < bombNo; j++) {
+        //     while (bomb[i] === bomb[i + j] || x[bomb[i]] == div[l]) {
+        //       bomb[i + j] = Math.floor(Math.random() * 100)
+        //     }
+        //   }
+        // }
         for (let i = 0; i < bombNo; i++) {
           x[bomb[i]] = '*'
           if (bomb[i] > 9) {
@@ -150,6 +167,6 @@ for (let l = 0; l < div.length; l++) {
     }
     m = 0
     hiden.innerText = hidenBox
-    win()
+    win(l)
   })
 }
