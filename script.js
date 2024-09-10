@@ -67,10 +67,7 @@ function numberSameLevelOfBomb(i) {
   }
 }
 
-function numberAroundBomb(i) {
-  numberUpBomb(i)
-  numberSameLevelOfBomb(i)
-
+function numberDownBomb(i) {
   if (bomb[i] < 90) {
     if (bomb[i] % 10 > 0 && x[bomb[i] + 9] != '*') {
       x[bomb[i] + 9] += 1
@@ -82,6 +79,12 @@ function numberAroundBomb(i) {
       x[bomb[i] + 11] += 1
     }
   }
+}
+
+function numberAroundBomb(i) {
+  numberUpBomb(i)
+  numberSameLevelOfBomb(i)
+  numberDownBomb(i)
 }
 
 function showHidenBox(l) {
