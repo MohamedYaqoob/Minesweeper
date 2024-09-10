@@ -58,14 +58,19 @@ function numberUpBomb(i) {
   }
 }
 
-function numberAroundBomb(i) {
-  numberUpBomb(i)
+function numberSameLevelOfBomb(i) {
   if (bomb[i] % 10 > 0 && x[bomb[i] - 1] != '*') {
     x[bomb[i] - 1] += 1
   }
   if (bomb[i] % 10 < 9 && x[bomb[i] + 1] != '*') {
     x[bomb[i] + 1] += 1
   }
+}
+
+function numberAroundBomb(i) {
+  numberUpBomb(i)
+  numberSameLevelOfBomb(i)
+
   if (bomb[i] < 90) {
     if (bomb[i] % 10 > 0 && x[bomb[i] + 9] != '*') {
       x[bomb[i] + 9] += 1
