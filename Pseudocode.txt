@@ -19,4 +19,4 @@ i fixed some error
 
 i will make the first click not bomb 
 i will make the second page of html
-
+i will change background

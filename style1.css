@@ -1,0 +1,14 @@
+body {
+  background-image: url('https://pics.craiyon.com/2023-10-19/693428d3f6524f409c1892f05cff1c95.webp');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  height: 15vh;
+  width: 15vh;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuol_TrFUIPvSIfqVx5I5ZG5CJzbSChptUrw&s');
+}
